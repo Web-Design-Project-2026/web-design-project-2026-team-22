@@ -1,0 +1,46 @@
+#product_container {
+  width: 100%;
+  height: 45vh;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "picture name name"
+    "picture . ."
+    "picture . check_aval"
+    "picture book .";
+  column-gap: 1em;
+  row-gap: 0.5em;
+}
+
+#product_container img {
+  grid-area: picture;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--image_border_radius);
+}
+
+.check_aval {
+  grid-area: check_aval;
+}
+
+.book_button {
+  grid-area: book;
+}
+
+.name_price_container {
+  grid-area: name;
+  color: var(--pal1_col3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
+
+#description_container,
+.description_txt_container {
+  width: 100%;
+}
