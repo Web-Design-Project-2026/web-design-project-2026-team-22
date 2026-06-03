@@ -1,5 +1,11 @@
+#description_container,
+.description_txt_container,
+#product_container img,
 #product_container {
   width: 100%;
+}
+
+#product_container {
   height: 45vh;
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
@@ -7,8 +13,8 @@
   grid-template-areas:
     "picture name name"
     "picture . ."
-    "picture . check_aval"
-    "picture book .";
+    "picture . book"
+    "picture . .";
   column-gap: 1em;
   row-gap: 0.5em;
 }
@@ -16,15 +22,14 @@
 #product_container img {
   grid-area: picture;
   max-height: 100%;
-  width: 100%;
   display: block;
   object-fit: cover;
   border-radius: var(--image_border_radius);
 }
 
-.check_aval {
+/* .check_aval {
   grid-area: check_aval;
-}
+} */
 
 .book_button {
   grid-area: book;
@@ -40,7 +45,18 @@
   text-align: right;
 }
 
-#description_container,
-.description_txt_container {
-  width: 100%;
+.description_txt_container p {
+  color: var(--pal1_col3);
+}
+
+@media screen and (max-width: 1160px) {
+  #product_container {
+    height: fit-content;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr auto;
+    grid-template-areas:
+      ". name ."
+      "picture picture picture"
+      "price . book";
+  }
 }

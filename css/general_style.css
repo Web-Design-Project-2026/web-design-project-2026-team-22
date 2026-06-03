@@ -205,12 +205,14 @@ footer {
 }
 
 /* responsiveness */
-@media screen and (min-width: 1700px) {
-}
+/* @media screen and (min-width: 1700px) {
+} */
 
 @media screen and (max-width: 930px) {
   main {
     background-image: url(../assets/base_w956.png);
+    padding: 6rem 5%;
+    padding-top: 11rem;
   }
   footer {
     background-image: url(../assets/footer_w956.png);
