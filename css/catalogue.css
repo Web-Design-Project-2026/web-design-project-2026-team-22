@@ -61,6 +61,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   font-size: clamp(0.85rem, 1.1vw, 1.15rem);
+  font-weight: 430;
   width: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -76,8 +77,9 @@ h1 {
 
 #solo_characters {
   display: grid;
+  height: auto;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   gap: 1em;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
 }

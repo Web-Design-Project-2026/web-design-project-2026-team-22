@@ -51,6 +51,10 @@
   font-style: normal;
 }
 
+p {
+  font-size: clamp(1em, 1.7vw, 2rem);
+}
+
 /* settings for elements */
 * {
   margin: 0;
@@ -126,6 +130,25 @@ main {
   margin-top: 2rem;
 }
 
+.link_basket,
+.link_catalogue,
+.logo_link {
+  width: auto;
+  background-size: cover;
+}
+
+.link_basket,
+.link_catalogue {
+  height: 2.8rem;
+  margin-top: 2rem;
+}
+.link_basket {
+  background-image: url(../assets/button_short.png);
+}
+.link_catalogue {
+  background-image: url(../assets/button_wide.png);
+}
+
 .nav_holder img {
   object-fit: cover;
 }
@@ -174,4 +197,20 @@ footer {
 
 .footer_holder p {
   color: var(--pal1_col3);
+}
+
+/* responsiveness */
+@media screen and (max-width: 930px) {
+  main {
+    background-image: url(../assets/base_w956.png);
+  }
+  footer {
+    background-image: url(../assets/footer_w956.png);
+  }
+  .nav_holder {
+    background-image: url(../assets/top_w956.png);
+  }
+  nav {
+    background-image: url(../assets/base_w956.png);
+  }
 }

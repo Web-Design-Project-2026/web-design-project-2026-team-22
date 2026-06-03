@@ -87,7 +87,7 @@
   max-width: 80%;
   color: var(--pal1_col6);
   text-align: center;
-  font-weight: 500;
-  font-size: clamp(0.6rem, 1.3vw, 2rem);
+  font-weight: 400;
+  /* font-size: clamp(0.6rem, 1.3vw, 2rem); */
   line-height: 1.5;
 }
