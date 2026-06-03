@@ -99,6 +99,7 @@ main {
   padding-bottom: 10em;
   box-sizing: border-box;
 }
+
 /* nav insert */
 .nav_holder {
   color: var(--pal1_col3);
@@ -156,13 +157,14 @@ footer {
   left: 0;
   width: 100%;
   box-sizing: border-box;
-  height: 200px;
+  height: auto;
   background-image: url(../assets/base_footer_straight_w14000.png);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: top center;
   z-index: 10;
 }
+/* the text breaks main due to linebreaks 897 and 799 width*/
 
 .footer_holder article {
   display: flex;

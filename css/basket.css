@@ -13,6 +13,10 @@ figure {
   height: 15vw;
 }
 
+main.basket_main {
+  justify-content: space-between;
+}
+
 .item {
   padding: 0.5em;
   display: grid;
@@ -41,13 +45,28 @@ img {
 
 .item h3 {
   grid-area: name;
+  font-weight: 400;
 }
 
 .item p {
   grid-area: price;
   text-align: end;
+  font-weight: 350;
+}
+
+button{
+font-size: 100%;
+  font-family: inherit;
+  font-weight: 350;
+  border: 0;
+  padding: 0;
 }
 
 .item button {
   grid-area: button;
+  background-image: url(../assets/small_leaf.png);
+}
+
+.button_container {
+  margin-bottom: 6rem;
 }
