@@ -51,6 +51,10 @@
   font-style: normal;
 }
 
+h1 {
+  font-size: clamp(2em, 2.7vw, 3rem);
+}
+
 p {
   font-size: clamp(1em, 1.7vw, 2rem);
 }
@@ -76,13 +80,6 @@ body {
   grid-template-rows: auto 1fr auto; /* Clean structural layout lanes */
   background-color: var(--pal2_col5);
   min-height: 100vh;
-}
-
-header {
-  display: flex;
-  font-size: 40pt;
-  justify-content: center;
-  background-image: url(../assets/subheader_top_w1400.png);
 }
 
 main {
@@ -213,6 +210,7 @@ footer {
     background-image: url(../assets/base_w956.png);
     padding: 6rem 5%;
     padding-top: 11rem;
+    overflow-x: hidden;
   }
   footer {
     background-image: url(../assets/footer_w956.png);

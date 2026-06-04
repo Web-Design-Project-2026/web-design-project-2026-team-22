@@ -1,24 +1,29 @@
+/* typography */
 h1 {
-  display: flex;
-  justify-content: center;
-  margin: 1vh;
+  text-align: center;
+  margin: 1vh 0;
 }
 
 .first_h1 {
   margin-top: 1vw;
 }
 
+/* bundles */
 #bundles {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  gap: 2vw;
   width: 100%;
   height: 30%;
+  justify-content: space-evenly;
+  gap: 2vw;
+}
+
+#bundles article,
+.bundle_container a {
+  position: relative;
 }
 
 #bundles article {
-  position: relative;
   width: 100%;
   height: 100%;
   overflow: visible;
@@ -26,7 +31,6 @@ h1 {
 
 .bundle_container a {
   display: block;
-  position: relative;
   text-decoration: none;
 }
 
@@ -40,25 +44,19 @@ h1 {
 }
 
 .bundle_txt_container {
-  position: absolute;
-  z-index: 20;
+  display: flex;
+  flex-direction: column;
   bottom: clamp(-2rem, -2vw, -1rem);
   right: clamp(-2rem, -2vw, -1rem);
   width: clamp(9rem, 14vw, 14rem);
   height: clamp(7rem, 12vw, 12rem);
-  margin-top: -2em;
-  margin-right: -2em;
-  display: flex;
-  flex-direction: column;
+  margin: -2em -2em 0 0;
+  padding: 2rem 3rem 1vw 1vw;
+  position: absolute;
+  z-index: 20;
   justify-content: center;
   align-items: center;
-  padding: 1vw;
-  padding-right: 3em;
-  padding-top: 2rem;
-  background-image: url(../assets/big_leaf.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center 90%;
+  background: url(../assets/big_leaf.png) no-repeat center 90% / contain;
 }
 
 .bundle_txt_container p {
@@ -74,6 +72,18 @@ h1 {
   white-space: nowrap;
 }
 
+/* character section */
+
+#solo_characters {
+  display: grid;
+  height: fit-content;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 6rem;
+}
+
 .character_img_container {
   padding: 0.5em;
   /* height: 5em; */
@@ -87,15 +97,7 @@ h1 {
   align-items: center;
 }
 
-#solo_characters {
-  display: grid;
-  height: fit-content;
-  width: 100%;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
-  gap: 1em;
-  margin-bottom: 6rem;
-}
+/* respinsiveness */
 
 @media screen and (max-width: 1200px) {
   #bundles {
@@ -105,5 +107,21 @@ h1 {
   #solo_characters {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+  .bundle_container {
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bundle_txt_container {
+    position: relative;
+    width: 90%;
+    height: 35%;
+    right: auto;
+    margin: -3rem 0 0 0;
+    bottom: auto;
+    padding-right: 1vw;
+    background-position: center center;
   }
 }
