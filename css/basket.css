@@ -54,18 +54,29 @@ img {
   font-weight: 350;
 }
 
-button{
-font-size: 100%;
+.leafy-button {
+  display: grid;
+  max-width: auto;
+  height: auto;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  background-image: url("assets/small_leaf.png");
+}
+
+/*button {
+  font-size: 100%;
   font-family: inherit;
   font-weight: 350;
   border: 0;
   padding: 0;
-}
+}*/
 
-.item button {
+/*.item button {
   grid-area: button;
   background-image: url(../assets/small_leaf.png);
-}
+}*/
 
 .button_container {
   margin-bottom: 6rem;
