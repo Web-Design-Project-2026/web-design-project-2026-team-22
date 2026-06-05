@@ -57,6 +57,7 @@ h1 {
 
 p {
   font-size: clamp(1.2rem, 1.7vw, 2rem);
+  pointer-events: none;
 }
 
 /* settings for elements */
@@ -118,7 +119,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
-  /* background-position-y: center; */
+  pointer-events: none;
 }
 
 .link_basket,
@@ -127,6 +128,7 @@ main {
   display: inline-block;
   background-size: contain;
   background-repeat: no-repeat;
+  pointer-events: auto;
 }
 
 .link_basket,

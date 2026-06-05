@@ -62,6 +62,10 @@ img {
   background: url("../assets/small_leaf.png") no-repeat center center / contain;
 }
 
+.leafy_button:hover {
+  background-image: url(../assets/small_leaf_pressed.png);
+}
+
 .leafy_button p.roboto-slab-regular {
   color: var(--pal1_col6);
   margin: 0;
@@ -81,6 +85,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .button_container {
@@ -114,11 +119,19 @@ button {
   background: url("../assets/small_leaf.png") no-repeat center center / contain;
 }
 
+.clear_cart:hover {
+  background-image: url(../assets/small_leaf_pressed.png);
+}
+
 .accept_button {
   width: clamp(8rem, 10vw, 10rem);
   aspect-ratio: 227/106;
   background: url("../assets/small_leaf_green.png") no-repeat center center/
     contain;
+}
+
+.accept_button:hover {
+  background-image: url(../assets/small_leaf_green_pressed.png);
 }
 
 @media screen and (max-width: 1200px) {

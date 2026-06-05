@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    const clearCartButton = document.querySelector(".clear-cart");
+    const clearCartButton = document.querySelector(".clear_cart");
     if (clearCartButton) {
       clearCartButton.addEventListener("click", function () {
         localStorage.setItem("shoppingCart", JSON.stringify([]));

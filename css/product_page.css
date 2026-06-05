@@ -6,7 +6,7 @@
 }
 
 #product_container {
-  height: 45vh;
+  height: 50vh;
   display: grid;
   grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -38,6 +38,10 @@
   cursor: pointer;
   height: 100%;
   aspect-ratio: 227/106;
+}
+
+.book_button:hover {
+  background-image: url(../assets/small_leaf_green_pressed.png);
 }
 
 .name_price_container {

@@ -61,6 +61,10 @@ h1 {
   background: url(../assets/big_leaf.png?v=2) no-repeat right 90% / contain;
 }
 
+.bundle_txt_container:hover {
+  background-image: url(../assets/big_leaf_pressed.png);
+}
+
 .bundle_txt_container p {
   width: 90%;
   overflow: hidden;
@@ -137,6 +141,10 @@ h1 {
     contain;
   box-sizing: border-box;
   width: 100%;
+}
+
+.character_txt_container:hover {
+  background-image: url(../assets/small_leaf_green_pressed.png);
 }
 
 /* responsiveness */
