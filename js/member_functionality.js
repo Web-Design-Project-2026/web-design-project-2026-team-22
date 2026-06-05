@@ -35,7 +35,7 @@ function loadProductInTemplate() {
   const productId = urlParams.get("id");
 
   if (!productId) return;
-  let productData = null;
+  let productData;
 
   // and im so sorryyyyyyyy
   if (productId.startsWith("chr")) {
@@ -50,6 +50,7 @@ function loadProductInTemplate() {
     const priceElement = document.querySelector(".product_price");
     const imgElement = document.querySelector(".product_large_img");
     const descElement = document.querySelector(".product_description");
+    const metaElement = document.querySelector(".product_meta_details");
 
     const imagePath = productData.picture.replace("../", "");
 
@@ -60,9 +61,49 @@ function loadProductInTemplate() {
       imgElement.src = imagePath;
       imgElement.alt = productData.name;
     }
+    if (metaElement) {
+      const activitiesList = productData.activity
+        ? productData.activity.join(", ")
+        : "Error";
+      const ages = productData.ageRange || "All ages";
+      const year = productData.releaseYear || "Unkown";
+      metaElement.innerHTML = `
+      Activities: ${activitiesList} <br/>
+      Ages: ${ages} <br/>
+      Year of release: ${year}`;
+    }
   }
+}
+
+function renderOtherPerformers() {
+  const container = document.getElementById("solo_characters");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  characters_array.forEach((char) => {
+    const card = document.createElement("a");
+    card.className = "character_container";
+
+    card.href = `product_page.html?id=${char.id}`;
+
+    const imagePath = char.picture.replace("../", "");
+
+    card.innerHTML = `
+      <div class="character_img_container">
+        <img src="${imagePath}" alt="${char.name}" />
+      </div>
+      <section class="character_txt_container roboto-slab-regular">
+        <p>${char.name}</p>
+        <p>${char.price} SEK</p>
+      </section>
+    `;
+
+    container.appendChild(card);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   loadProductInTemplate();
+  renderOtherPerformers();
 });

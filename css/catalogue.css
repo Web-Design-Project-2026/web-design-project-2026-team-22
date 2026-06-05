@@ -50,24 +50,25 @@ h1 {
 
 .bundle_txt_container {
   width: clamp(21rem, 24vw, 26rem);
-  aspect-ratio: 466 / 263;
+  aspect-ratio: 533 / 262;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: -3.4rem;
-  padding: 4rem 2.7rem 3rem 1.2rem;
+  padding: 4rem 2rem 3rem 2rem;
   z-index: 20;
-  background: url(../assets/big_leaf.png) no-repeat center 90% / contain;
+  background: url(../assets/big_leaf.png?v=2) no-repeat right 90% / contain;
 }
 
 .bundle_txt_container p {
+  width: 90%;
   overflow: hidden;
+  transform: translateX(-1.3rem);
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--pal1_col3);
   -webkit-text-stroke: 0.1rem var(--pal1_col6);
-  width: 90%;
   letter-spacing: -0.02em;
   font-weight: 1000;
   margin: 0.1em 0;
@@ -87,7 +88,7 @@ h1 {
   font-weight: 900;
   margin: 0.1em 0;
   text-align: center;
-  font-size: clamp(0.85rem, 1.1vw, 1.25rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.25rem);
 }
 
 #solo_characters {

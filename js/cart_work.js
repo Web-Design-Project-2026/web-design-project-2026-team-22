@@ -1,23 +1,113 @@
-window.onload = function () {
-  const data = JSON.parse(localStorage.getItem("clicked_item"));
-};
-switch (true) {
-  case bundles_array:
-  //load members
-  //load standard info
-  default:
-  //load standard info
-}
+document.addEventListener("DOMContentLoaded", function () {
+  // produt page part
+  const bookButton = document.querySelector(".book_button");
+  if (bookButton) {
+    // use url we already have
 
-// when we press add we add the shit from clicked_item to cart array as an item
-// first we parse the cart array, then we push new item and then we stringify the cart back
-let items_in_cart = json.parse(localStorage.getItem("items_in_cart")) || [];
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get("id");
 
-add_button.addEventListener("click", add_function);
+    if (!productId) return;
 
-function add_button() {
-  //adding all the data
-  //let item = {all the data};
-  //items_in_cart.push(item);
-  localStorage.setItem("items_in_cart", JSON.stringify(items_in_cart));
-}
+    // find in the arrays
+    let currentProduct;
+    if (productId.startsWith("chr")) {
+      currentProduct = characters_array.find((char) => char.id === productId);
+    } else if (productId.startsWith("bndl")) {
+      currentProduct = bundles_array.find((bundle) => bundle.id === productId);
+    }
+
+    if (!currentProduct) return;
+
+    // book
+    bookButton.addEventListener("click", function () {
+      const savedCart = localStorage.getItem("shoppingCart");
+      let currentCartArray = savedCart ? JSON.parse(savedCart) : [];
+      const cleanImgPath = currentProduct.picture.replace("../", "");
+
+      let cartItem = {
+        id: currentProduct.id,
+        name: currentProduct.name,
+        picture: cleanImgPath,
+        price: currentProduct.price,
+        activity: currentProduct.activity,
+        background: currentProduct.background,
+        ageRange: currentProduct.ageRange,
+        releaseYear: currentProduct.releaseYear,
+      };
+
+      currentCartArray.push(cartItem);
+
+      localStorage.setItem("shoppingCart", JSON.stringify(currentCartArray));
+      bookButton.textContent = "Booked";
+      bookButton.style.backgroundImage = url("../assets/small_leaf.png");
+    });
+  }
+
+  // cart part
+  const cartContainer = document.getElementById("cart_container");
+  if (cartContainer) {
+    function renderCart() {
+      const savedCart = localStorage.getItem("shoppingCart");
+      let currentCartArray = savedCart ? JSON.parse(savedCart) : [];
+
+      cartContainer.innerHTML = "";
+
+      // if nuthing
+      if (currentCartArray.length === 0) {
+        cartContainer.innerHTML =
+          "<p style='grid-column: 1/-1; text-align: center;'>Your basket is empty.</p>";
+        return;
+      }
+
+      // copypaste template
+      currentCartArray.forEach((item, index) => {
+        const itemElement = document.createElement("figure");
+        itemElement.className = "item dark_container";
+
+        itemElement.innerHTML = `
+          <img src="${item.picture}" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <p>${item.price} SEK</p>
+          <button class="leafy_button remove_button" data-index="${index}">
+            <p class="roboto-slab-regular remove_text">Remove</p>
+          </button>
+        `;
+
+        cartContainer.appendChild(itemElement);
+      });
+
+      attachRemoveListeners();
+    }
+
+    function attachRemoveListeners() {
+      const removeButtons = document.querySelectorAll(".remove_button");
+      removeButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const itemIndex = this.getAttribute("data-index");
+
+          const savedCart = localStorage.getItem("shoppingCart");
+          let currentCartArray = savedCart ? JSON.parse(savedCart) : [];
+
+          currentCartArray.splice(itemIndex, 1);
+
+          localStorage.setItem(
+            "shoppingCart",
+            JSON.stringify(currentCartArray),
+          );
+          renderCart();
+        });
+      });
+    }
+
+    const clearCartButton = document.querySelector(".clear-cart");
+    if (clearCartButton) {
+      clearCartButton.addEventListener("click", function () {
+        localStorage.setItem("shoppingCart", JSON.stringify([]));
+        renderCart();
+      });
+    }
+
+    renderCart();
+  }
+});

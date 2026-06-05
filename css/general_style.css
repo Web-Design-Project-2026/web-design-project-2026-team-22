@@ -86,7 +86,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3vw;
+  gap: 2rem;
   padding: 2em 23%;
   padding-bottom: 6em;
   position: relative;
