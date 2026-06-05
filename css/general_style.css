@@ -1,0 +1,248 @@
+:root {
+  /* pallette 1 */
+  --pal1_col1: #ff9633;
+  --pal1_col2: #ae4202;
+  --pal1_col3: #f2ece0;
+  --pal1_col4: #96ae0e;
+  --pal1_col5: #186a39;
+  --pal1_col6: #05061b;
+  --pal1_col7: #553232;
+  /* palette 2 */
+  --pal2_col1: #ecf7cd;
+  --pal2_col2: #f7b0d8;
+  --pal2_col3: #6357df;
+  --pal2_col4: #67186b;
+  --pal2_col5: #012a15;
+  --pal2_col6: #472948;
+  --pal2_col7: #504a8d;
+  /* general element properties */
+  --window_border_radius: 30px;
+  --image_border_radius: 20px;
+  --micro_gap: 2rem;
+}
+/* presets */
+.dark_container {
+  padding: var(--micro_gap);
+  overflow: clip;
+  border-radius: var(--window_border_radius);
+  background: var(--pal1_col7);
+  border: 0.2em solid var(--pal1_col1);
+}
+
+.light_container {
+  padding: var(--micro_gap);
+  overflow: clip;
+  border-radius: var(--window_border_radius);
+  background: var(--pal1_col1);
+}
+
+/* text */
+.finger-paint-regular {
+  color: var(--pal2_col1);
+  font-family: "Finger Paint", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-slab-regular {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-size: clamp(2em, 2.7vw, 3rem);
+}
+
+p {
+  font-size: clamp(1.2rem, 1.7vw, 2rem);
+  pointer-events: none;
+}
+
+/* settings for elements */
+* {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Clean structural layout lanes */
+  background-color: var(--pal2_col5);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2em 23%;
+  padding-bottom: 6em;
+  position: relative;
+  z-index: 1;
+  grid-row: 2 / 3;
+  grid-column: 1;
+  flex-grow: 1;
+  box-sizing: border-box;
+  background-image: url(../assets/base_mid_straight_updated_w1400.png);
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: top center;
+}
+
+/* nav insert */
+.nav_holder {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--micro_gap);
+  margin-bottom: -12rem;
+  padding: 1em 1em 28% 1em;
+  position: relative;
+  z-index: 20;
+  color: var(--pal1_col3);
+  background-image: url(../assets/justheader_top_w1400.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  pointer-events: none;
+}
+
+.link_basket,
+.link_catalogue,
+.logo_link {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: auto;
+}
+
+.link_basket,
+.link_catalogue {
+  height: 3.5rem;
+  margin-top: 2rem;
+}
+.link_basket {
+  aspect-ratio: 219/90;
+  background-image: url(../assets/button_short.png);
+}
+
+.link_basket:hover {
+  background-image: url(../assets/button_short_pressed.png);
+}
+
+.link_catalogue {
+  aspect-ratio: 352 / 90;
+  background-image: url(../assets/button_wide.png);
+}
+
+.link_catalogue:hover {
+  background-image: url(../assets/button_wide_pressed.png);
+}
+
+.nav_holder img {
+  object-fit: cover;
+}
+
+nav {
+  height: 25vw;
+  min-height: 15rem;
+  grid-column: 1;
+  grid-row: 1;
+  background-image: url(../assets/base_top_nakedsnake_updated_w1400.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+/* footer insert */
+.footer_holder {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 4em 22%;
+  gap: 2em;
+  height: 100%;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  min-height: 40vh;
+  margin-top: -6rem;
+  padding: 0;
+  position: relative;
+  grid-row: 3;
+  grid-column: 1;
+  z-index: 10;
+  box-sizing: border-box;
+  background-image: url(../assets/base_footer_straight_w14000.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+  /* bottom: 0;
+  left: 0; */
+}
+/* the text breaks main due to linebreaks 897 and 799 width*/
+
+.footer_holder article {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+}
+
+.footer_holder p {
+  color: var(--pal1_col3);
+}
+
+@media screen and (max-width: 930px) {
+  main {
+    padding: 6rem 5%;
+    padding-top: 11rem;
+    overflow-x: hidden;
+    background-image: url(../assets/base_w956.png);
+  }
+  footer {
+    background-image: url(../assets/footer_w956.png);
+  }
+  .nav_holder {
+    background-image: url(../assets/top_w956.png);
+  }
+  nav {
+    background-image: url(../assets/base_w956.png);
+  }
+  .link_basket,
+  .link_catalogue {
+    width: 5rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .link_basket {
+    background-image: url(../assets/basket_w_button.png);
+  }
+  .link_basket:hover {
+    background-image: url(../assets/basket_w_button_pressed.png);
+  }
+
+  .link_catalogue {
+    background-image: url(../assets/catalogue_w_button.png);
+  }
+
+  .link_catalogue:hover {
+    background-image: url(../assets/catalogue_w_button_pressed.png);
+  }
+}

@@ -1,0 +1,141 @@
+#cart_container {
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: var(--micro_gap);
+  margin-top: var(--micro_gap);
+  color: var(--pal1_col3);
+}
+
+main.basket_main {
+  justify-content: space-between;
+}
+
+.item {
+  width: 100%;
+  min-height: 20vh;
+  height: auto;
+  display: grid;
+  gap: 0.3em;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 2fr;
+  grid-template-areas:
+    "picture name name"
+    "picture . price"
+    "picture . button";
+  padding: 0.5em;
+}
+
+figure,
+img {
+  display: block;
+  height: auto;
+}
+
+.item img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--image_border_radius);
+  grid-area: picture;
+}
+
+.item h3 {
+  grid-area: name;
+  font-weight: 400;
+}
+
+.item p {
+  grid-area: price;
+  text-align: end;
+  font-weight: 350;
+}
+
+.leafy_button {
+  grid-area: button;
+  width: clamp(6rem, 8vw, 8rem);
+  aspect-ratio: 227/106;
+  justify-self: end;
+  align-self: end;
+  display: flex;
+  background: url("../assets/small_leaf.png") no-repeat center center / contain;
+}
+
+.leafy_button:hover {
+  background-image: url(../assets/small_leaf_pressed.png);
+}
+
+.leafy_button p.roboto-slab-regular {
+  color: var(--pal1_col6);
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 490;
+  width: 100%;
+}
+
+button {
+  color: var(--pal1_col3);
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button_container {
+  margin-bottom: 6rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--micro_gap);
+  width: 100%;
+}
+
+.clear_cart,
+.accept_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear_cart p,
+.accept_button p {
+  color: var(--pal1_col6);
+  margin: 0;
+  text-align: center;
+  font-weight: 490;
+  width: 100%;
+  font-size: 1.15rem;
+}
+
+.clear_cart {
+  width: clamp(8rem, 10vw, 10rem);
+  aspect-ratio: 227 / 106;
+  background: url("../assets/small_leaf.png") no-repeat center center / contain;
+}
+
+.clear_cart:hover {
+  background-image: url(../assets/small_leaf_pressed.png);
+}
+
+.accept_button {
+  width: clamp(8rem, 10vw, 10rem);
+  aspect-ratio: 227/106;
+  background: url("../assets/small_leaf_green.png") no-repeat center center/
+    contain;
+}
+
+.accept_button:hover {
+  background-image: url(../assets/small_leaf_green_pressed.png);
+}
+
+@media screen and (max-width: 1200px) {
+  #cart_container {
+    grid-template-columns: 1fr;
+  }
+}
