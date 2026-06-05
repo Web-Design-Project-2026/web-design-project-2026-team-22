@@ -35,6 +35,9 @@
     contain;
   border: 0;
   font-size: clamp(1.2rem, 1.7vw, 2rem);
+  cursor: pointer;
+  height: 100%;
+  aspect-ratio: 227/106;
 }
 
 .name_price_container {
@@ -51,7 +54,7 @@
   color: var(--pal1_col3);
 }
 
-#solo_characters {
+#product_suggestions {
   width: 100%;
   height: fit-content;
   display: grid;
@@ -125,7 +128,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-  #solo_characters {
+  #product_suggestions {
     grid-template-columns: repeat(2, 1fr);
   }
 }

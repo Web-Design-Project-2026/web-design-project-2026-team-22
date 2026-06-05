@@ -76,7 +76,7 @@ function loadProductInTemplate() {
 }
 
 function renderOtherPerformers() {
-  const container = document.getElementById("solo_characters");
+  const container = document.getElementById("product_suggestions");
   if (!container) return;
 
   container.innerHTML = "";

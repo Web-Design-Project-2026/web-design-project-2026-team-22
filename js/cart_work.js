@@ -1,50 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // produt page part
+  // product
   const bookButton = document.querySelector(".book_button");
-  if (bookButton) {
-    // use url we already have
 
+  // where
+  if (bookButton) {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get("id");
 
-    if (!productId) return;
+    // add button first
+    if (productId) {
+      bookButton.addEventListener("click", function () {
+        let currentProduct;
+        // check what are we and where to find us
+        if (productId.startsWith("chr")) {
+          currentProduct = characters_array.find(
+            (char) => char.id === productId,
+          );
+        } else if (productId.startsWith("bndl")) {
+          currentProduct = bundles_array.find(
+            (bundle) => bundle.id === productId,
+          );
+        }
+        // if we screw it
+        if (!currentProduct) {
+          console.error("Product data not found for ID:", productId);
+          return;
+        }
 
-    // find in the arrays
-    let currentProduct;
-    if (productId.startsWith("chr")) {
-      currentProduct = characters_array.find((char) => char.id === productId);
-    } else if (productId.startsWith("bndl")) {
-      currentProduct = bundles_array.find((bundle) => bundle.id === productId);
+        // cart saving
+        const savedCart = localStorage.getItem("shoppingCart");
+        let currentCartArray = savedCart ? JSON.parse(savedCart) : [];
+        const cleanImgPath = currentProduct.picture.replace("../", "");
+
+        let cartItem = {
+          id: currentProduct.id,
+          name: currentProduct.name,
+          picture: cleanImgPath,
+          price: currentProduct.price,
+          activity: currentProduct.activity,
+          background: currentProduct.background,
+          ageRange: currentProduct.ageRange,
+          releaseYear: currentProduct.releaseYear,
+        };
+
+        currentCartArray.push(cartItem);
+
+        localStorage.setItem("shoppingCart", JSON.stringify(currentCartArray));
+        bookButton.textContent = "Booked";
+        bookButton.style.backgroundImage = "url('../assets/small_leaf.png')";
+      });
     }
-
-    if (!currentProduct) return;
-
-    // book
-    bookButton.addEventListener("click", function () {
-      const savedCart = localStorage.getItem("shoppingCart");
-      let currentCartArray = savedCart ? JSON.parse(savedCart) : [];
-      const cleanImgPath = currentProduct.picture.replace("../", "");
-
-      let cartItem = {
-        id: currentProduct.id,
-        name: currentProduct.name,
-        picture: cleanImgPath,
-        price: currentProduct.price,
-        activity: currentProduct.activity,
-        background: currentProduct.background,
-        ageRange: currentProduct.ageRange,
-        releaseYear: currentProduct.releaseYear,
-      };
-
-      currentCartArray.push(cartItem);
-
-      localStorage.setItem("shoppingCart", JSON.stringify(currentCartArray));
-      bookButton.textContent = "Booked";
-      bookButton.style.backgroundImage = url("../assets/small_leaf.png");
-    });
   }
 
-  // cart part
+  // cart
   const cartContainer = document.getElementById("cart_container");
   if (cartContainer) {
     function renderCart() {
@@ -53,14 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       cartContainer.innerHTML = "";
 
-      // if nuthing
       if (currentCartArray.length === 0) {
         cartContainer.innerHTML =
           "<p style='grid-column: 1/-1; text-align: center;'>Your basket is empty.</p>";
         return;
       }
 
-      // copypaste template
       currentCartArray.forEach((item, index) => {
         const itemElement = document.createElement("figure");
         itemElement.className = "item dark_container";

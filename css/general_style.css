@@ -138,9 +138,18 @@ main {
   aspect-ratio: 219/90;
   background-image: url(../assets/button_short.png);
 }
+
+.link_basket:hover {
+  background-image: url(../assets/button_short_pressed.png);
+}
+
 .link_catalogue {
   aspect-ratio: 352 / 90;
   background-image: url(../assets/button_wide.png);
+}
+
+.link_catalogue:hover {
+  background-image: url(../assets/button_wide_pressed.png);
 }
 
 .nav_holder img {
@@ -223,7 +232,15 @@ footer {
   .link_basket {
     background-image: url(../assets/basket_w_button.png);
   }
+  .link_basket:hover {
+    background-image: url(../assets/basket_w_button_pressed.png);
+  }
+
   .link_catalogue {
     background-image: url(../assets/catalogue_w_button.png);
+  }
+
+  .link_catalogue:hover {
+    background-image: url(../assets/catalogue_w_button_pressed.png);
   }
 }
