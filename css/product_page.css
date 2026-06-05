@@ -32,7 +32,13 @@
 } */
 
 .book_button {
+  z-index: 26;
+  color: var(--pal1_col3);
   grid-area: book;
+  background: url(../assets/small_leaf_green.png) no-repeat center center /
+    contain;
+  border: 0;
+  font-size: clamp(1.2rem, 1.7vw, 2rem);
 }
 
 .name_price_container {

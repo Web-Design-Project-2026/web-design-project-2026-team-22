@@ -27,26 +27,42 @@ fluff-data (includes info abt everything)*/
 
 //need a window to popup during start, remember it was picked and then show filtered items
 
-window.onload = function () {
-  const data = JSON.parse(localStorage.getItem("clicked_item"));
-};
-switch (true) {
-  case bundles_array:
-  //load members
-  //load standard info
-  default:
-  //load standard info
+// template loader
+// code found on website i cant find again :(
+function loadProductInTemplate() {
+  // where are uuuuuuuuuuu
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+
+  if (!productId) return;
+  let productData = null;
+
+  // and im so sorryyyyyyyy
+  if (productId.startsWith("chr")) {
+    productData = characters_array.find((char) => char.id === productId);
+  } else if (productId.startsWith("bndl")) {
+    productData = bundles_array.find((bundle) => bundle.id === productId);
+  }
+
+  // dies
+  if (productData) {
+    const titleElement = document.querySelector(".product_title");
+    const priceElement = document.querySelector(".product_price");
+    const imgElement = document.querySelector(".product_large_img");
+    const descElement = document.querySelector(".product_description");
+
+    const imagePath = productData.picture.replace("../", "");
+
+    if (titleElement) titleElement.textContent = productData.name;
+    if (priceElement) priceElement.textContent = `${productData.price} SEK`;
+    if (descElement) descElement.textContent = productData.background;
+    if (imgElement) {
+      imgElement.src = imagePath;
+      imgElement.alt = productData.name;
+    }
+  }
 }
 
-// when we press add we add the shit from clicked_item to cart array as an item
-// first we parse the cart array, then we push new item and then we stringify the cart back
-let items_in_cart = json.parse(localStorage.getItem("items_in_cart")) || [];
-
-add_button.addEventListener("click", add_function);
-
-function add_button() {
-  //adding all the data
-  //let item = {all the data};
-  //items_in_cart.push(item);
-  localStorage.setItem("items_in_cart", JSON.stringify(items_in_cart));
-}
+document.addEventListener("DOMContentLoaded", () => {
+  loadProductInTemplate();
+});

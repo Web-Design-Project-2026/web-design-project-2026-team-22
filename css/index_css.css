@@ -6,14 +6,16 @@
   display: flex;
   justify-content: space-between;
   padding: var(--micro_gap);
+  gap: 1rem;
   overflow: clip;
   border-radius: var(--window_border_radius);
   background: var(--pal1_col1);
 }
 
 #main_figure img {
-  max-width: 30%;
-  max-height: 100%;
+  flex: 1;
+  width: 0;
+  height: 100%;
   object-fit: cover;
   border-radius: var(--image_border_radius);
 }

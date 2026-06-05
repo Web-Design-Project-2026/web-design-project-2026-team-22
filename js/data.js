@@ -34,8 +34,8 @@ const characters_array = [
   },
   {
     id: "chr-3",
-    name: "Hedgie the Hedgehog and Snowflake the Mouse",
-    picture: "../assets/hedgehog_single_bg.png",
+    name: "Hedgie and Snowflake",
+    picture: "../assets/hedgehog_n_mouse_single_bg.png",
     price: 680,
     activity: ["party", "babysitting", "storytime"],
     background:
@@ -49,75 +49,12 @@ const bundles_array = [
   {
     id: "bndl-0",
     name: "Forest Band Bundle",
-    picture: "../assets/forest_band_bg.png",
-    price: 1000,
+    picture: "../assets/group_bg_small.png",
+    price: 3400,
     members: ["chr-0", "chr-1", "chr-2", "chr-3"],
     activity: ["party", "comedy"],
     background:
       "Deep in the forest, far from the noise and chaos of the big city, there is a band of musicians. About 12 years ago, this band has decided to bring their wonderful music to the city-dwellers. Ever since then, these four little guys - Beaver Bjorn, Felix the Wolf, Charlie the Moose, Hedgie the Hedgehog and the last, but definitely not least, Snowflake the Mouse - been performing on parties, birthdays and many other celebrations. While beings made of metal, their performance is so magical it leaves little to no doubt they're actually alive. ",
     ages: "6-12",
   },
-
-  // {
-  //   id: "bndl-2",
-  //   name: "holder2",
-  //   price: 950,
-  //   members: ["chr-2", "chr-4", "chr-6"], // Links to character2, character4, and character6
-  //   activity: ["calm", "baby sitting"],
-  //   background: "fluff text",
-  //   ages: "4-10",
-  // },
-  // {
-  //   id: "bndl-3",
-  //   name: "holder3",
-  //   price: 1500,
-  //   members: ["chr-1", "chr-3", "chr-5", "chr-7"], // Links to character1, character3, character5, and character7
-  //   activity: ["party", "birthday"],
-  //   background: "fluff text",
-  //   ages: "8-14",
-  // },
 ];
-
-//get characters linked to bundles
-function getBundleMembers(bundle) {
-  return bundle.members.map((memberId) => {
-    return characters_array.find((character) => character.id === memberId);
-  });
-}
-
-// how many ppl in bundle
-function getBundleNumber(bundle) {
-  const result = getBundleMembers(bundle);
-  return result.length;
-}
-
-//filter characters that contain certain activity
-function getFilteredCharacters(filterTag) {
-  return characters_array.filter((character) => {
-    return character.activity.includes(filterTag);
-  });
-}
-
-//update array
-function updateCart(currentCartArray) {
-  const cartJson = JSON.stringify(currentCartArray);
-  localStorage.setItem("shoppingCart", cartJsonString);
-}
-
-//decrypt array
-function loadCart() {
-  const savedCart = localStorage.getItem("shoppingCart");
-  return savedCart ? JSON.parse(savedCart) : [];
-}
-
-//extract prices from carted objects
-//need newest cart which is an array
-//map new array where every item is replaced with its price
-let priceArray = loadedCart.map((item) => {
-  return item.price;
-});
-
-//now we need total
-const total = priceArray.reduce((runningTotal, currentPrice) => {
-  return runningTotal + currentPrice;
-}, 0);
